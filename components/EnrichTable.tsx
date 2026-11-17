@@ -39,7 +39,8 @@ function Cell({ delay, children }: { delay: number; children: React.ReactNode })
   );
 }
 
-export default function EnrichTable() {
+/** `compact` drops the Domain column so the table fits narrow layouts. */
+export default function EnrichTable({ compact = false }: { compact?: boolean }) {
   return (
     <div
       aria-hidden="true"
@@ -50,27 +51,31 @@ export default function EnrichTable() {
           <span className="h-2.5 w-2.5 rounded-full bg-clay-coral" />
           <span className="h-2.5 w-2.5 rounded-full bg-clay-yellow" />
           <span className="h-2.5 w-2.5 rounded-full bg-clay-sky" />
-          <span className="ml-2 font-mono text-xs text-clay-ink/60">
+          <span className="ml-2 whitespace-nowrap font-mono text-xs text-clay-ink/60">
             austin-startups.csv
           </span>
         </div>
-        <span className="rounded-md bg-clay-ink px-2 py-1 font-mono text-[11px] text-white">
+        <span className="whitespace-nowrap rounded-md bg-clay-ink px-2 py-1 font-mono text-[11px] text-white">
           ▶ Run 5 rows
         </span>
       </div>
 
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[520px] table-fixed text-left font-mono text-[12px] text-clay-ink/80">
+        <table
+          className={`w-full table-fixed text-left font-mono text-[12px] text-clay-ink/80 ${
+            compact ? "min-w-[340px]" : "min-w-[480px]"
+          }`}
+        >
           <colgroup>
-            <col className="w-[26%]" />
-            <col className="w-[26%]" />
-            <col className="w-[14%]" />
-            <col className="w-[22%]" />
-            <col className="w-[12%]" />
+            <col className={compact ? "w-[32%]" : "w-[26%]"} />
+            {!compact && <col className="w-[26%]" />}
+            <col className={compact ? "w-[18%]" : "w-[14%]"} />
+            <col className={compact ? "w-[32%]" : "w-[22%]"} />
+            <col className={compact ? "w-[18%]" : "w-[12%]"} />
           </colgroup>
           <thead>
             <tr className="border-b border-clay-line bg-clay-paper/70 text-[11px] uppercase tracking-wide text-clay-ink/50">
-              {columns.map((c) => (
+              {columns.filter((c) => !(compact && c === "Domain")).map((c) => (
                 <th key={c} className="px-3 py-2 font-medium">
                   {c}
                 </th>
@@ -82,8 +87,8 @@ export default function EnrichTable() {
               const base = 400 + i * 450;
               return (
                 <tr key={r.company} className="border-b border-clay-line last:border-0">
-                  <td className="px-3 py-2.5 font-medium text-clay-ink">{r.company}</td>
-                  <Cell delay={base}>{r.domain}</Cell>
+                  <td className="truncate px-3 py-2.5 font-medium text-clay-ink">{r.company}</td>
+                  {!compact && <Cell delay={base}>{r.domain}</Cell>}
                   <Cell delay={base + 120}>{r.size}</Cell>
                   <Cell delay={base + 240}>{r.signal}</Cell>
                   <Cell delay={base + 360}>

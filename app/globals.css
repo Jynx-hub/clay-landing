@@ -77,7 +77,28 @@ body {
   animation: bob 5s ease-in-out infinite;
 }
 
+/* Hero background: faint spreadsheet grid that fades out from the center */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(23, 21, 15, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 21, 15, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 60% 45%, #000 30%, transparent 80%);
+  mask-image: radial-gradient(ellipse 80% 70% at 60% 45%, #000 30%, transparent 80%);
+}
+
+/* Ticker: content is doubled, so sliding by half loops seamlessly */
+.ticker {
+  animation: ticker 40s linear infinite;
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 1.25rem)); }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .ticker,
   .pipeline-pulse,
   .animate-bob {
     animation: none !important;

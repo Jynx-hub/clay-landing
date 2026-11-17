@@ -2,7 +2,7 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Logo from "@/components/Logo";
 import Reveal from "@/components/Reveal";
-import EnrichTable from "@/components/EnrichTable";
+import Hero from "@/components/Hero";
 import Pipeline from "@/components/Pipeline";
 import {
   WorkflowArt,
@@ -89,73 +89,7 @@ export default function Home() {
     <>
       <Nav formUrl={FORM_URL} />
       <main id="top">
-        {/* ============ HERO ============ */}
-        <section className="border-b border-clay-line">
-          <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-5 pb-16 pt-14 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:gap-14 lg:pb-24 lg:pt-20">
-            <div className="min-w-0">
-              <p className="flex items-center gap-2.5 text-sm font-medium text-clay-ink/60">
-                <span className="text-clay-ut">UT Austin</span>
-                <span aria-hidden="true">·</span>
-                Powered by
-                <Image
-                  src="/brand/clay-logo-dark.png"
-                  alt="Clay"
-                  width={66}
-                  height={21}
-                  className="-mt-0.5"
-                />
-              </p>
-              <h1 className="mt-5 text-balance text-[2.75rem] font-extrabold leading-[0.98] tracking-[-0.03em] sm:text-6xl lg:text-[4.5rem]">
-                Learn <span className="whitespace-nowrap">go-to-market</span> by actually running it.
-              </h1>
-              <p className="mt-6 max-w-lg text-pretty text-lg leading-relaxed text-clay-ink/70">
-                UT students building real Clay workflows.
-              </p>
-              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-                <a
-                  href={FORM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-lg bg-clay-coral-ink px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-[#B23434] focus:outline-none focus-visible:ring-2 focus-visible:ring-clay-ink focus-visible:ring-offset-2 focus-visible:ring-offset-clay-paper"
-                >
-                  Apply for Fall 2026
-                </a>
-                <a
-                  href="#what-we-do"
-                  className="group inline-flex items-center gap-1.5 rounded text-base font-semibold underline decoration-clay-ink/25 underline-offset-4 transition-colors hover:decoration-clay-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-clay-ink"
-                >
-                  What we do
-                  <span aria-hidden="true" className="transition-transform group-hover:translate-y-0.5">
-                    ↓
-                  </span>
-                </a>
-              </div>
-            </div>
-
-            <div className="relative min-w-0">
-              <div
-                aria-hidden="true"
-                className="absolute -inset-4 -z-10 rotate-[-2deg] rounded-2xl bg-clay-bg sm:-inset-6"
-              />
-              <EnrichTable />
-              <div
-                aria-hidden="true"
-                className="animate-bob absolute -bottom-14 left-6 hidden items-center gap-2.5 rounded-xl border border-clay-line bg-white px-3.5 py-2.5 shadow-panel sm:flex"
-              >
-                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#E6F6EC] text-sm text-[#1F7A43]">
-                  ✓
-                </span>
-                <span className="text-sm font-semibold">3 high-fit accounts</span>
-              </div>
-              <div
-                aria-hidden="true"
-                className="animate-bob absolute -top-12 right-10 hidden rounded-xl bg-clay-ink px-3.5 py-2 font-mono text-xs text-white shadow-panel [animation-delay:-2.5s] sm:block"
-              >
-                <span className="text-clay-yellow">●</span> enriching 4 columns
-              </div>
-            </div>
-          </div>
-        </section>
+        <Hero formUrl={FORM_URL} />
 
         {/* ============ HOW A WORKFLOW RUNS ============ */}
         <section className="border-b border-clay-line py-16 sm:py-20">
