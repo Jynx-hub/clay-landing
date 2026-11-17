@@ -31,19 +31,6 @@ body {
   transform: translateY(0);
 }
 
-/* Loading placeholder for table cells that haven't "enriched" yet */
-.cell-pending {
-  background: linear-gradient(
-    90deg,
-    rgba(23, 21, 15, 0.06) 0%,
-    rgba(23, 21, 15, 0.12) 50%,
-    rgba(23, 21, 15, 0.06) 100%
-  );
-  background-size: 50% 100%;
-  background-repeat: no-repeat;
-  background-color: rgba(23, 21, 15, 0.06);
-}
-
 /* Pulse traveling along the workflow track: down on mobile, across on desktop */
 .pipeline-pulse {
   left: 50%;
@@ -111,9 +98,5 @@ body {
     opacity: 1;
     transform: none;
     transition: none;
-  }
-  .animate-cell-in,
-  .animate-shimmer {
-    animation: none !important;
   }
 }

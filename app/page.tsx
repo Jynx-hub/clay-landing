@@ -201,7 +201,7 @@ export default function Home() {
                 Small first cohort
               </p>
               <h2 className="mt-4 text-balance text-4xl font-extrabold leading-[1.02] tracking-[-0.02em] sm:text-6xl">
-                Fall 2026 applications are open.
+                Apply to be a Clay Ambassador.
               </h2>
               <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
                 <a

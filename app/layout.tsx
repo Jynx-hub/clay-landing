@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, IBM_Plex_Mono } from "next/font/google";
+import { Inter_Tight, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-const display = Bricolage_Grotesque({
+const display = Inter_Tight({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
@@ -16,9 +16,9 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Clay on Campus · UT Austin GTM Ambassador Club",
+  title: "Clay on Campus · Become a Clay Ambassador at UT Austin",
   description:
-    "UT Austin's GTM Ambassador Club, powered by Clay. Students learning modern go-to-market by building real Clay workflows. Applications open for Fall 2026.",
+    "Become a Clay Ambassador at UT Austin. Rep Clay on campus, learn modern go-to-market, and join the first cohort. Applications open for Fall 2026.",
   keywords: [
     "Clay",
     "GTM",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Clay on Campus · UT Austin GTM Ambassador Club",
     description:
-      "Learn go-to-market by running it. UT Austin's GTM Ambassador Club, powered by Clay.",
+      "Become a Clay Ambassador at UT Austin. Applications open for Fall 2026.",
     type: "website",
   },
 };
