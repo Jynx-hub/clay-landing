@@ -1,17 +1,24 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Bricolage_Grotesque, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const display = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-display",
+  display: "swap",
+});
+
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Clay on Campus · UT Austin GTM Ambassador Club",
   description:
-    "The first GTM Ambassador Club at any university. UT Austin students learning modern go-to-market by running real Clay workflows for real Austin startups. Powered by Clay.",
+    "UT Austin's GTM Ambassador Club, powered by Clay. Students learning modern go-to-market by building real Clay workflows. Applications open for Fall 2026.",
   keywords: [
     "Clay",
     "GTM",
@@ -24,13 +31,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Clay on Campus · UT Austin GTM Ambassador Club",
     description:
-      "The first GTM Ambassador Club at any university. Powered by Clay.",
+      "Learn go-to-market by running it. UT Austin's GTM Ambassador Club, powered by Clay.",
     type: "website",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#E8EEFB",
+  themeColor: "#F6F4EF",
   width: "device-width",
   initialScale: 1,
 };
@@ -41,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${display.variable} ${mono.variable}`}>
       <body className="font-sans antialiased">{children}</body>
     </html>
   );

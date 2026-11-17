@@ -1,12 +1,12 @@
 /**
  * Three stacked claymation-style arches (blue, coral, yellow).
  * Hand-drawn feel via soft shadows, slightly irregular rounding, and a
- * gentle float animation. Decorative — hidden from assistive tech.
+ * no animation. Decorative — hidden from assistive tech.
  */
 export default function Arches() {
   return (
     <div
-      className="relative mx-auto w-full max-w-[440px] animate-float"
+      className="relative mx-auto w-full max-w-[440px]"
       aria-hidden="true"
     >
       <svg

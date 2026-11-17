@@ -4,27 +4,44 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 72px;
 }
 
 body {
-  color: #1a1a1a;
-  background-color: #e8eefb;
+  color: #17150f;
+  background-color: #f6f4ef;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #ffd84d;
+  color: #17150f;
 }
 
 /* Scroll reveal — starts hidden, animates in when .is-visible is added */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-  will-change: opacity, transform;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Loading placeholder for table cells that haven't "enriched" yet */
+.cell-pending {
+  background: linear-gradient(
+    90deg,
+    rgba(23, 21, 15, 0.06) 0%,
+    rgba(23, 21, 15, 0.12) 50%,
+    rgba(23, 21, 15, 0.06) 100%
+  );
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+  background-color: rgba(23, 21, 15, 0.06);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -36,7 +53,8 @@ body {
     transform: none;
     transition: none;
   }
-  .animate-float {
+  .animate-cell-in,
+  .animate-shimmer {
     animation: none !important;
   }
 }

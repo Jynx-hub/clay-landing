@@ -9,37 +9,38 @@ const config: Config = {
     extend: {
       colors: {
         clay: {
+          paper: "#F6F4EF",
           bg: "#E8EEFB",
           sky: "#5FC3E7",
           coral: "#F26D6D",
+          "coral-ink": "#CC3D3D",
           yellow: "#FFD84D",
           ut: "#BF5700",
-          ink: "#1A1A1A",
+          ink: "#17150F",
+          line: "#E4E0D6",
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-      },
-      borderRadius: {
-        card: "16px",
+        sans: ["var(--font-display)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
       boxShadow: {
-        clay: "0 10px 30px -12px rgba(26, 26, 26, 0.18)",
-        "clay-lg": "0 24px 50px -18px rgba(26, 26, 26, 0.28)",
+        panel:
+          "0 1px 0 rgba(23,21,15,0.04), 0 12px 32px -16px rgba(23,21,15,0.22)",
       },
       keyframes: {
-        "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(24px)" },
+        "cell-in": {
+          "0%": { opacity: "0", transform: "translateY(4px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
+        shimmer: {
+          "0%": { backgroundPosition: "-120% 0" },
+          "100%": { backgroundPosition: "220% 0" },
         },
       },
       animation: {
-        "fade-up": "fade-up 0.7s ease-out forwards",
-        float: "float 6s ease-in-out infinite",
+        "cell-in": "cell-in 0.35s ease-out both",
+        shimmer: "shimmer 1.4s linear infinite",
       },
     },
   },
