@@ -37,12 +37,14 @@ app/
   layout.tsx      Root layout, metadata, fonts
   page.tsx        All page sections (single-page scroll)
   globals.css     Tailwind layers + scroll-reveal + reduced-motion
-  icon.svg        Favicon (colored arch)
+  icon.png        Favicon (Clay arch icon)
 components/
   Nav.tsx         Sticky nav (wordmark, section links, Apply CTA)
   EnrichTable.tsx Hero visual: Clay-style table that enriches row by row (CSS only)
-  Logo.tsx        Arch mark
-  Arches.tsx      Stacked arches (SVG), used in the apply section
+  Logo.tsx        Clay arch icon (nav, footer)
+  Pipeline.tsx    "How a workflow runs" step diagram
+  Illustrations.tsx  SVG spot illustrations for What we do + perks
+public/brand/     Clay logo + arch icon, from Clay's official logo kit
   Reveal.tsx      Scroll fade-in wrapper (IntersectionObserver)
 tailwind.config.ts  Brand palette, shadows, animations
 ```

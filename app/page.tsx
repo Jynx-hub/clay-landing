@@ -1,6 +1,6 @@
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Logo from "@/components/Logo";
-import Arches from "@/components/Arches";
 import Reveal from "@/components/Reveal";
 import EnrichTable from "@/components/EnrichTable";
 import Pipeline from "@/components/Pipeline";
@@ -23,17 +23,17 @@ const EMAIL = "clayoncampusut@gmail.com";
 const whatWeDo = [
   {
     title: "Run real workflows",
-    body: "Build the automations GTM teams actually use: enrich lists, score accounts, find buying signals, and ship outbound that runs on its own.",
+    body: "Enrich lists, score accounts, ship outbound.",
     Art: WorkflowArt,
   },
   {
     title: "Champion Clay on campus",
-    body: "We're UT's official Clay Ambassador crew. We teach other students the tooling and bring modern GTM engineering to campus.",
+    body: "Teach the tooling to other students.",
     Art: CampusArt,
   },
   {
     title: "Host events and teardowns",
-    body: "Workshops, speaker nights, and live breakdowns of real workflows with GTM operators who run them every day.",
+    body: "Workshops and live teardowns with GTM operators.",
     Art: EventArt,
   },
 ];
@@ -41,25 +41,25 @@ const whatWeDo = [
 const perks = [
   {
     title: "Learn GTM engineering",
-    body: "The tooling and workflows top go-to-market teams run on, learned by building them.",
+    body: "The stack top GTM teams run on.",
     tint: "bg-[#FDEDED]",
     Art: GrowthArt,
   },
   {
     title: "Connect with Clay",
-    body: "Meet the Clay team and the people building modern go-to-market.",
+    body: "Meet the team behind it.",
     tint: "bg-clay-bg",
     Art: ConnectArt,
   },
   {
-    title: "Something real for your resume",
-    body: "Projects you can show and a Clay Ambassador credential you can point to.",
+    title: "Resume-ready work",
+    body: "Real projects plus a Clay Ambassador credential.",
     tint: "bg-[#FBEFE4]",
     Art: CredentialArt,
   },
   {
     title: "Swag",
-    body: "Clay merch, stickers, and gear for the people who show up.",
+    body: "Merch, stickers, gear.",
     tint: "bg-[#FFF6D6]",
     Art: SwagArt,
   },
@@ -93,17 +93,23 @@ export default function Home() {
         <section className="border-b border-clay-line">
           <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-5 pb-16 pt-14 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:gap-14 lg:pb-24 lg:pt-20">
             <div className="min-w-0">
-              <p className="flex items-center gap-2 text-sm font-medium text-clay-ink/70">
-                <span className="h-2 w-2 rounded-full bg-clay-ut" aria-hidden="true" />
-                UT Austin&rsquo;s GTM Ambassador Club, powered by Clay
+              <p className="flex items-center gap-2.5 text-sm font-medium text-clay-ink/60">
+                <span className="text-clay-ut">UT Austin</span>
+                <span aria-hidden="true">·</span>
+                Powered by
+                <Image
+                  src="/brand/clay-logo-dark.png"
+                  alt="Clay"
+                  width={66}
+                  height={21}
+                  className="-mt-0.5"
+                />
               </p>
               <h1 className="mt-5 text-balance text-[2.75rem] font-extrabold leading-[0.98] tracking-[-0.03em] sm:text-6xl lg:text-[4.5rem]">
                 Learn <span className="whitespace-nowrap">go-to-market</span> by actually running it.
               </h1>
               <p className="mt-6 max-w-lg text-pretty text-lg leading-relaxed text-clay-ink/70">
-                Clay on Campus is a crew of UT students building real Clay
-                workflows: enriching data, finding signals, and shipping outbound
-                the way modern GTM teams do.
+                UT students building real Clay workflows.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
                 <a
@@ -124,9 +130,6 @@ export default function Home() {
                   </span>
                 </a>
               </div>
-              <p className="mt-6 text-sm text-clay-ink/55">
-                Small first cohort. No sales or CS background needed.
-              </p>
             </div>
 
             <div className="relative min-w-0">
@@ -157,16 +160,11 @@ export default function Home() {
         {/* ============ HOW A WORKFLOW RUNS ============ */}
         <section className="border-b border-clay-line py-16 sm:py-20">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
-            <Reveal className="flex flex-col justify-between gap-3 md:flex-row md:items-end">
-              <div>
-                <SectionLabel>How a workflow runs</SectionLabel>
-                <h2 className="mt-3 text-2xl font-extrabold tracking-[-0.02em] sm:text-3xl">
-                  From a list of names to a booked meeting.
-                </h2>
-              </div>
-              <p className="max-w-sm text-clay-ink/60">
-                The kind of workflow we build together, step by step.
-              </p>
+            <Reveal>
+              <SectionLabel>How a workflow runs</SectionLabel>
+              <h2 className="mt-3 text-2xl font-extrabold tracking-[-0.02em] sm:text-3xl">
+                List in, meetings out.
+              </h2>
             </Reveal>
             <Reveal delay={100} className="mt-12">
               <Pipeline />
@@ -182,10 +180,6 @@ export default function Home() {
               <h2 className="mt-4 text-balance text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] sm:text-5xl">
                 Part builders, part ambassadors.
               </h2>
-              <p className="mt-5 max-w-sm text-lg leading-relaxed text-clay-ink/65">
-                We&rsquo;re Clay&rsquo;s presence at UT. Most of what we do is
-                hands-on.
-              </p>
             </Reveal>
 
             <ol className="border-t border-clay-line">
@@ -220,7 +214,7 @@ export default function Home() {
             <Reveal className="max-w-2xl">
               <SectionLabel>What you get</SectionLabel>
               <h2 className="mt-4 text-balance text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] sm:text-5xl">
-                Walk away with more than a resume line.
+                More than a resume line.
               </h2>
             </Reveal>
 
@@ -247,13 +241,8 @@ export default function Home() {
             <Reveal>
               <SectionLabel>Who it&rsquo;s for</SectionLabel>
               <h2 className="mt-4 text-balance text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] sm:text-5xl">
-                No sales background. No CS background. Just curiosity.
+                No sales or CS background needed. Just curiosity.
               </h2>
-              <p className="mt-6 max-w-lg text-pretty text-lg leading-relaxed text-clay-ink/70">
-                GTM touches everything a company does, so it&rsquo;s useful no
-                matter where you&rsquo;re headed. Curiosity and follow-through
-                matter more than your major.
-              </p>
             </Reveal>
             <Reveal delay={100}>
               <ul className="flex flex-wrap gap-2.5" aria-label="Who should join">
@@ -275,10 +264,10 @@ export default function Home() {
           <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-5 py-20 sm:px-8 sm:py-24 md:grid-cols-[1.4fr_1fr]">
             <Reveal>
               <p className="font-mono text-xs uppercase tracking-[0.12em] text-clay-yellow">
-                Applications open · Fall 2026
+                Small first cohort
               </p>
               <h2 className="mt-4 text-balance text-4xl font-extrabold leading-[1.02] tracking-[-0.02em] sm:text-6xl">
-                The first cohort is small. We want people who ship.
+                Fall 2026 applications are open.
               </h2>
               <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
                 <a
@@ -287,18 +276,24 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="rounded-lg bg-clay-coral-ink px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-[#B23434] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-clay-ink"
                 >
-                  Fill out the interest form
+                  Apply now
                 </a>
                 <a
                   href={`mailto:${EMAIL}`}
                   className="rounded text-sm text-white/65 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white hover:decoration-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
-                  Questions? {EMAIL}
+                  Questions? Email us
                 </a>
               </div>
             </Reveal>
-            <div className="mx-auto hidden w-full max-w-[300px] md:block">
-              <Arches />
+            <div className="mx-auto hidden w-full max-w-[320px] md:block">
+              <Image
+                src="/brand/clay-arch.png"
+                alt=""
+                width={564}
+                height={427}
+                className="h-auto w-full drop-shadow-[0_24px_40px_rgba(0,0,0,0.45)]"
+              />
             </div>
           </div>
         </section>
@@ -311,7 +306,7 @@ export default function Home() {
             <Logo size={20} />
             <span className="font-semibold text-white">Clay on Campus</span>
             <span className="text-white/35">·</span>
-            <span>An official Clay Ambassador Club at UT Austin</span>
+            <span>Official Clay Ambassador Club · UT Austin</span>
           </div>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <a
