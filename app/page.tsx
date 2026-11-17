@@ -3,6 +3,16 @@ import Logo from "@/components/Logo";
 import Arches from "@/components/Arches";
 import Reveal from "@/components/Reveal";
 import EnrichTable from "@/components/EnrichTable";
+import Pipeline from "@/components/Pipeline";
+import {
+  WorkflowArt,
+  CampusArt,
+  EventArt,
+  GrowthArt,
+  ConnectArt,
+  CredentialArt,
+  SwagArt,
+} from "@/components/Illustrations";
 
 const FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLScasv6uelO55eDyfgPLRzbPi_l2Ewipv8F7pOTiciZNaUCl0A/viewform?usp=dialog";
@@ -14,14 +24,17 @@ const whatWeDo = [
   {
     title: "Run real workflows",
     body: "Build the automations GTM teams actually use: enrich lists, score accounts, find buying signals, and ship outbound that runs on its own.",
+    Art: WorkflowArt,
   },
   {
     title: "Champion Clay on campus",
     body: "We're UT's official Clay Ambassador crew. We teach other students the tooling and bring modern GTM engineering to campus.",
+    Art: CampusArt,
   },
   {
     title: "Host events and teardowns",
     body: "Workshops, speaker nights, and live breakdowns of real workflows with GTM operators who run them every day.",
+    Art: EventArt,
   },
 ];
 
@@ -29,22 +42,26 @@ const perks = [
   {
     title: "Learn GTM engineering",
     body: "The tooling and workflows top go-to-market teams run on, learned by building them.",
-    accent: "bg-clay-coral",
+    tint: "bg-[#FDEDED]",
+    Art: GrowthArt,
   },
   {
     title: "Connect with Clay",
     body: "Meet the Clay team and the people building modern go-to-market.",
-    accent: "bg-clay-sky",
+    tint: "bg-clay-bg",
+    Art: ConnectArt,
   },
   {
     title: "Something real for your resume",
     body: "Projects you can show and a Clay Ambassador credential you can point to.",
-    accent: "bg-clay-ut",
+    tint: "bg-[#FBEFE4]",
+    Art: CredentialArt,
   },
   {
     title: "Swag",
     body: "Clay merch, stickers, and gear for the people who show up.",
-    accent: "bg-clay-yellow",
+    tint: "bg-[#FFF6D6]",
+    Art: SwagArt,
   },
 ];
 
@@ -118,7 +135,42 @@ export default function Home() {
                 className="absolute -inset-4 -z-10 rotate-[-2deg] rounded-2xl bg-clay-bg sm:-inset-6"
               />
               <EnrichTable />
+              <div
+                aria-hidden="true"
+                className="animate-bob absolute -bottom-14 left-6 hidden items-center gap-2.5 rounded-xl border border-clay-line bg-white px-3.5 py-2.5 shadow-panel sm:flex"
+              >
+                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#E6F6EC] text-sm text-[#1F7A43]">
+                  ✓
+                </span>
+                <span className="text-sm font-semibold">3 high-fit accounts</span>
+              </div>
+              <div
+                aria-hidden="true"
+                className="animate-bob absolute -top-12 right-10 hidden rounded-xl bg-clay-ink px-3.5 py-2 font-mono text-xs text-white shadow-panel [animation-delay:-2.5s] sm:block"
+              >
+                <span className="text-clay-yellow">●</span> enriching 4 columns
+              </div>
             </div>
+          </div>
+        </section>
+
+        {/* ============ HOW A WORKFLOW RUNS ============ */}
+        <section className="border-b border-clay-line py-16 sm:py-20">
+          <div className="mx-auto max-w-6xl px-5 sm:px-8">
+            <Reveal className="flex flex-col justify-between gap-3 md:flex-row md:items-end">
+              <div>
+                <SectionLabel>How a workflow runs</SectionLabel>
+                <h2 className="mt-3 text-2xl font-extrabold tracking-[-0.02em] sm:text-3xl">
+                  From a list of names to a booked meeting.
+                </h2>
+              </div>
+              <p className="max-w-sm text-clay-ink/60">
+                The kind of workflow we build together, step by step.
+              </p>
+            </Reveal>
+            <Reveal delay={100} className="mt-12">
+              <Pipeline />
+            </Reveal>
           </div>
         </section>
 
@@ -137,14 +189,14 @@ export default function Home() {
             </Reveal>
 
             <ol className="border-t border-clay-line">
-              {whatWeDo.map(({ title, body }, i) => (
+              {whatWeDo.map(({ title, body, Art }, i) => (
                 <Reveal
                   as="li"
                   key={title}
                   delay={i * 80}
-                  className="grid grid-cols-[3rem_1fr] gap-4 border-b border-clay-line py-8 sm:grid-cols-[4.5rem_1fr]"
+                  className="grid grid-cols-[3rem_1fr] gap-4 border-b border-clay-line py-8 sm:grid-cols-[4.5rem_1fr_11rem] sm:items-center"
                 >
-                  <span className="font-mono text-sm text-clay-coral-ink">
+                  <span className="self-start font-mono text-sm text-clay-coral-ink">
                     0{i + 1}
                   </span>
                   <div>
@@ -152,6 +204,9 @@ export default function Home() {
                     <p className="mt-2 max-w-xl leading-relaxed text-clay-ink/65">
                       {body}
                     </p>
+                  </div>
+                  <div className="col-start-2 max-w-[13rem] rounded-xl bg-clay-paper p-2 sm:col-start-auto sm:max-w-none">
+                    <Art />
                   </div>
                 </Reveal>
               ))}
@@ -173,10 +228,12 @@ export default function Home() {
               as="div"
               className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-clay-line bg-clay-line sm:grid-cols-2 lg:grid-cols-4"
             >
-              {perks.map(({ title, body, accent }) => (
-                <div key={title} className="bg-white p-6 sm:p-7">
-                  <span className={`block h-1.5 w-8 rounded-full ${accent}`} aria-hidden="true" />
-                  <h3 className="mt-6 text-lg font-bold leading-snug tracking-tight">{title}</h3>
+              {perks.map(({ title, body, tint, Art }) => (
+                <div key={title} className="bg-white p-4 sm:p-5">
+                  <div className={`rounded-lg px-4 py-3 ${tint}`}>
+                    <Art />
+                  </div>
+                  <h3 className="mt-5 px-1 text-lg font-bold leading-snug tracking-tight">{title}</h3>
                   <p className="mt-2 text-[15px] leading-relaxed text-clay-ink/65">{body}</p>
                 </div>
               ))}

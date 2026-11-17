@@ -44,7 +44,45 @@ body {
   background-color: rgba(23, 21, 15, 0.06);
 }
 
+/* Pulse traveling along the workflow track: down on mobile, across on desktop */
+.pipeline-pulse {
+  left: 50%;
+  animation: pulse-down 4s ease-in-out infinite;
+}
+
+@keyframes pulse-down {
+  from { top: 0%; }
+  to { top: 100%; }
+}
+
+@keyframes pulse-across {
+  from { left: 0%; }
+  to { left: 100%; }
+}
+
+@media (min-width: 768px) {
+  .pipeline-pulse {
+    top: 50%;
+    animation-name: pulse-across;
+  }
+}
+
+/* Gentle bob for the hero callout cards */
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-bob {
+  animation: bob 5s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .pipeline-pulse,
+  .animate-bob {
+    animation: none !important;
+  }
+
   html {
     scroll-behavior: auto;
   }
