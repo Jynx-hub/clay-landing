@@ -43,10 +43,10 @@ function Badge() {
 
 export default function Hero({ formUrl }: { formUrl: string }) {
   return (
-    <section className="relative overflow-hidden border-b border-clay-ink bg-clay-bg">
+    <section className="relative flex min-h-[calc(100svh-65px)] flex-col overflow-hidden border-b border-clay-ink bg-clay-bg">
       <div aria-hidden="true" className="hero-grid pointer-events-none absolute inset-0" />
 
-      <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 px-5 pb-20 pt-12 sm:px-8 lg:grid-cols-[1.15fr_1fr] lg:gap-6 lg:pb-24 lg:pt-16">
+      <div className="relative mx-auto grid w-full max-w-6xl flex-1 grid-cols-1 content-center items-center gap-14 px-5 pb-20 pt-12 sm:px-8 lg:grid-cols-[1.15fr_1fr] lg:gap-6 lg:pb-24 lg:pt-16">
         {/* ---- Copy ---- */}
         <div className="min-w-0">
           <p className="inline-flex items-center gap-2.5 rounded-full border border-clay-ink/10 bg-white/70 py-1.5 pl-3 pr-4 text-sm font-medium text-clay-ink/60">
