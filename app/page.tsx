@@ -65,6 +65,25 @@ const perks = [
   },
 ];
 
+const values = [
+  {
+    title: "Learn by building",
+    body: "One GTM problem per session. We explain it, show it in Clay, then build it together.",
+  },
+  {
+    title: "Any major welcome",
+    body: "Any major, any year. No coding experience needed.",
+  },
+  {
+    title: "Use it on what you care about",
+    body: "Recruiting, startups, sponsors for your org. The skills carry over.",
+  },
+  {
+    title: "Build with each other",
+    body: "Meet UT students into sales, growth, startups, and AI.",
+  },
+];
+
 const roles = [
   "Founders",
   "Aspiring VCs",
@@ -136,6 +155,30 @@ export default function Home() {
                   <div className="col-start-2 max-w-[13rem] rounded-xl bg-clay-paper p-2 sm:col-start-auto sm:max-w-none">
                     <Art />
                   </div>
+                </Reveal>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* ============ CORE VALUES ============ */}
+        <section id="values" className="border-y border-clay-ink bg-clay-ink py-20 text-white sm:py-28">
+          <div className="mx-auto max-w-6xl px-5 sm:px-8">
+            <Reveal className="max-w-2xl">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/50">
+                What we believe
+              </p>
+              <h2 className="mt-4 text-balance text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] sm:text-5xl">
+                You learn GTM by doing it.
+              </h2>
+            </Reveal>
+
+            <ol className="mt-14 grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+              {values.map(({ title, body }, i) => (
+                <Reveal as="li" key={title} delay={i * 80} className="border-t border-white/15 pt-6">
+                  <span className="font-mono text-sm text-clay-coral">0{i + 1}</span>
+                  <h3 className="mt-4 text-xl font-bold leading-snug tracking-tight">{title}</h3>
+                  <p className="mt-2 text-[15px] leading-relaxed text-white/60">{body}</p>
                 </Reveal>
               ))}
             </ol>
